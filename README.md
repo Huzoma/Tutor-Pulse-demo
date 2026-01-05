@@ -1,125 +1,98 @@
-# TutorPulse 🎓
+# TutorPulse (Demo/Prototype) 🎓
 ### Automated Home-Lesson Job Matching Platform
 
-**TutorPulse** is a robust web application designed to streamline the process of finding and applying for remote or home tutoring opportunities. By continuously scanning major job boards, it gives independent tutors a "first-to-know" advantage through real-time automation.
+**TutorPulse** is a cross-platform concept application designed to streamline the process of finding and applying for remote or home tutoring opportunities.
+
+> **Current Status:** 🚧 **Prototype / Demo Stage.**
+> This repository contains the frontend implementation and logic demonstration built with standard HTML, CSS, and JavaScript. It serves as a proof-of-concept for the full-scale platform.
 
 ---
 
 ## 📖 Table of Contents
 - [About the Project](#about-the-project)
-- [Key Features](#key-features)
+- [Key Features (Demo)](#key-features-demo)
+- [Future Roadmap](#future-roadmap)
 - [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
+- [How to Run](#how-to-run)
+- [Project Structure](#project-structure)
 
 ---
 
 ## 🧐 About the Project
 
-Searching for tutoring gigs often involves manually refreshing multiple job sites (Indeed, Glassdoor, local boards) and engaging in repetitive data entry.
+Searching for tutoring gigs often involves manually refreshing multiple job sites and engaging in repetitive data entry. **TutorPulse** is designed to solve this by aggregating listings and automating the application process.
 
-**TutorPulse solves this by:**
-1.  **Eliminating Manual Browsing:** It aggregates listings from parents seeking tutors in real-time.
-2.  **Reducing Missed Opportunities:** Speed is key in freelancing; TutorPulse ensures you are the first to know.
-3.  **Automating Applications:** With the AutoApply toggle, the system can securely submit your CV/Cover Letter instantly using headless browser automation.
-
-**Target Audience:**
-* Independent Tutors & Teachers
-* Retired Educators
-* College Students (Education majors/Subject experts)
-* Tutoring Agencies
+**The Goal of this Demo:**
+To demonstrate the User Interface (UI) and the User Experience (UX) flow for:
+1.  Viewing the job dashboard.
+2.  Setting up smart filters (Subject, Grade, Rate).
+3.  Simulating the "AutoApply" mechanism.
 
 ---
 
-## ✨ Key Features
+## ✨ Key Features (Demo)
 
-* **Real-Time Scanning:** A Python-based engine that pulls new listings the moment they go live.
-* **Smart Filtering:** Users can filter matches by subject, grade level (K-12/College), hourly rate, and geographic radius.
-* **Instant Web Notifications:** Browser-based push alerts notify you immediately when a match is found.
-* **AutoApply™:** Securely stores user credentials, Résumés, and Cover Letter templates to automate form submission.
-* **Dashboard:** A responsive Next.js dashboard to manage job feeds, saved searches, and application history.
+This prototype includes the following functional interfaces:
+
+* **Job Feed Dashboard:** A visual representation of how jobs are listed and sorted.
+* **Smart Filter UI:** Interactive forms allowing users to select Subject Area, Grade Level, and Radius.
+* **Notification Simulation:** Visual cues for how alerts will appear to the user.
+* **Responsive Design:** Optimized layout for both Desktop and Mobile views.
+
+---
+
+## 🗺️ Future Roadmap
+
+The following features are planned for the production release (v2.0):
+
+* [ ] **Backend Integration:** Node.js/Python backend for live web scraping.
+* [ ] **Real-Time Data:** Integration with WebSockets for live job updates.
+* [ ] **Database:** MongoDB connection for persistent user profiles.
+* [ ] **Headless Automation:** Puppeteer scripts to perform the actual "AutoApply" actions on job boards.
 
 ---
 
 ## ⚙️ Tech Stack
 
-### Core Framework (Web)
-* **Framework:** Next.js (React Framework)
-* **Language:** JavaScript (ES6+)
-* **Styling:** Tailwind CSS
+This prototype is built with lightweight, standard web technologies to ensure easy accessibility and fast testing.
 
-### Backend Services & API
-* **Server Runtime:** Node.js (via Next.js API Routes or Custom Server)
-* **Job Queuing:** Redis (for managing scraper queues)
-* **Real-time Updates:** Socket.io / WebSockets
-
-### Automation & Data Engineering
-* **Web Scraping:** Python (BeautifulSoup, Selenium)
-* **Headless Automation:** Puppeteer / Playwright (managed via Node.js)
-
-### Infrastructure & Database
-* **Database:** MongoDB (User profiles, preferences, scraped listings)
-* **Storage:** AWS S3 (Secure storage for CVs/Resumes)
-* **Authentication:** NextAuth.js (OAuth 2.0)
-* **Security:** AES-256 Encryption (for stored sensitive form data)
+* **Structure:** HTML5
+* **Styling:** CSS3 (Custom Grid/Flexbox layouts)
+* **Logic:** JavaScript (ES6+) - Handling DOM manipulation and mock data simulation.
 
 ---
 
-## 🚀 Getting Started
+## 🚀 How to Run
 
-Follow these steps to set up the project locally.
-
-### Prerequisites
-* Node.js (v18+)
-* Python (v3.8+)
-* MongoDB (Local or Atlas URL)
-* Redis
-
-### Installation
+Since this is a static web application, you do not need to install heavy dependencies like Node modules.
 
 1.  **Clone the repository**
     ```bash
-    git clone [https://github.com/TutorPulse/tutor-pulse.git](https://github.com/TutorPulse/tutor-pulse.git)
-    cd tutor-pulse
+    git clone [https://github.com/TutorPulse/tutor-pulse-demo.git](https://github.com/TutorPulse/tutor-pulse-demo.git)
     ```
 
-2.  **Install Web Dependencies (Next.js)**
-    ```bash
-    npm install
-    # or
-    yarn install
-    ```
+2.  **Open the Project**
+    * Navigate to the folder on your computer.
+    * Double-click `index.html` to open it in your default browser.
 
-3.  **Install Python Scraper Dependencies**
-    Navigate to the python engine folder (if separated):
-    ```bash
-    cd engine
-    pip install -r requirements.txt
-    ```
+    *OR (Recommended for VS Code users)*
 
-4.  **Run the Development Server**
-    ```bash
-    npm run dev
-    ```
-    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    * Open the folder in **VS Code**.
+    * Right-click `index.html` and select **"Open with Live Server"**.
 
 ---
 
-## 🔧 Configuration
+## 📂 Project Structure
 
-Create a `.env.local` file in the root directory for Next.js:
-
-```env
-# Database
-MONGODB_URI=your_mongodb_connection_string
-REDIS_URL=your_redis_url
-
-# NextAuth / Security
-NEXTAUTH_URL=http://localhost:3000
-NEXTAUTH_SECRET=your_auth_secret
-AES_KEY=your_encryption_key
-
-# External Services
-AWS_ACCESS_KEY_ID=your_aws_key
-AWS_SECRET_ACCESS_KEY=your_aws_secret
+```text
+/TutorPulse-Demo
+│
+├── index.html          # Main Dashboard Entry
+├── /css
+│   └── style.css       # Main Stylesheet
+├── /js
+│   ├── app.js          # Main Logic
+│   └── mockData.js     # Simulated job listings for the demo
+├── /assets
+│   └── images          # Icons and logos
+└── README.md
